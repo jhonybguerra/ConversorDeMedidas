@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
     private fun clear() {
         binding.btnClean.setOnClickListener {
             binding.edtValue.text.clear()
+            binding.edtValue.error = null
+            binding.spConversions.setSelection(0)
         }
     }
 

@@ -29,7 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         initSpinner()
         setActions()
+        clear()
 
+    }
+
+    private fun clear() {
+        binding.btnClean.setOnClickListener {
+            binding.edtValue.text.clear()
+        }
     }
 
     private fun setActions() {
@@ -38,13 +45,25 @@ class MainActivity : AppCompatActivity() {
                 val value = binding.edtValue.text.toString().toDouble()
                 val calculationStrategy = supportedCalculationStrategies[binding.spConversions.selectedItemPosition].calculationStrategy
                 Calculator.setCalculationStrategy(calculationStrategy)
-                Calculator.calculate(value)
+
+                val result = Calculator.calculate(value)
+                val label = calculationStrategy.getResultLabel(result != 1.toDouble())
+                showResult(result, label)
+
+
 
             } catch(e: NumberFormatException) {
                 binding.edtValue.error = "Insira um valor!"
             }
         }
 
+    }
+
+    private fun showResult(result: Double, label: String) {
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("RESULT", result)
+        intent.putExtra("LABEL", label)
+        startActivity(intent)
     }
 
     private fun initSpinner() {

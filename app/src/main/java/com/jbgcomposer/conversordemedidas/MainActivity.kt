@@ -1,10 +1,13 @@
 package com.jbgcomposer.conversordemedidas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import com.jbgcomposer.conversordemedidas.databinding.ActivityMainBinding
 import com.jbgcomposer.conversordemedidas.models.CalculationStrategyHolder
+import com.jbgcomposer.conversordemedidas.models.Calculator
 import com.jbgcomposer.conversordemedidas.models.strategies.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +28,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initSpinner()
+        setActions()
+
+    }
+
+    private fun setActions() {
+        binding.btnConvert.setOnClickListener {
+            try {
+                val value = binding.edtValue.text.toString().toDouble()
+                val calculationStrategy = supportedCalculationStrategies[binding.spConversions.selectedItemPosition].calculationStrategy
+                Calculator.setCalculationStrategy(calculationStrategy)
+                Calculator.calculate(value)
+
+            } catch(e: NumberFormatException) {
+                binding.edtValue.error = "Insira um valor!"
+            }
+        }
 
     }
 

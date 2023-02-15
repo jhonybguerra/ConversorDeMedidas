@@ -14,6 +14,7 @@
         android:gravity="center"
         android:hint="Insira o valor a ser convertido"
         android:inputType="numberDecimal"
+        android:imeOptions="actionDone"
         app:layout_constraintBottom_toTopOf="@+id/spConversions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

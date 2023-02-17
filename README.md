@@ -34,7 +34,7 @@ Ou faça o download da <a href="apk/app-debug.apk?raw=true">APK diretamente</a>.
 
 - Minimum SDK level: 24
 - [Linguagem Kotlin](https://kotlinlang.org/)
-- Utlização de Buttons, EditTexts e Spinner
+- Utilização de Buttons, EditTexts e Spinner
 - Criação de estratégias de cálculo e conversão utilizando o design pattern Strategy
 - Passa e recebe dados entre activities
 
@@ -44,7 +44,7 @@ Ou faça o download da <a href="apk/app-debug.apk?raw=true">APK diretamente</a>.
   - ViewBinding: Liga os componentes do XML no Kotlin através de uma classe que garante segurança de tipo e outras vantagens.
   
 - Arquitetura
-  - **ConversorDeMedidas** composto por duas telas, sendo uma activity para a inserção dos dados e parâmetros, e outra para a exibição dos resultados.
+  - **ConversorDeMedidas** é composto por duas telas, sendo uma activity para a inserção dos dados e parâmetros, e outra para a exibição dos resultados.
 
 ## Features
 
